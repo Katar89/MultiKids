@@ -1,0 +1,126 @@
+@import
+url('https://matiaslescano.com.ar/static/fonts/pixelicious.css');
+@import
+url('https://fonts.googleapis.com/css?family=Cantarell:400,700italic');
+
+body{
+  background: linear-gradient(1deg, #000000,#000000,#575757, #575757 );
+	background-size: 300% 200%;
+	animation: gradient 15s ease infinite;
+	height: 100vh;
+  font-family: sans-serif;
+}
+
+#tituloInvisible{
+  color:transparent
+}
+
+.form{
+  background-color: #3d3d3d;
+  opacity: 80%;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: -35px;
+  padding: 20px;
+  max-width: 400px;
+  text-align: center;
+  border-radius: 25px;;
+}
+
+hr {
+  border-color: #8C52FF;
+  margin-bottom: 40px;
+  width: 220px;
+  
+}
+
+h1 {
+  font-family: 'Cantarell', sans-serif;
+  font-size: 2em;
+  font-weight: bold;
+  color:rgb(255, 255, 255);
+  margin-bottom: 2px;
+}
+
+
+p {
+  color: white;
+  text-align: left;
+  margin-left: 30px;
+}
+
+input, textarea, .dropdown{
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px #8C52FF;
+  border-radius: 24px;
+}
+
+#email{
+  margin-bottom: 50px;
+}
+
+
+#imagen{
+  margin-top: 75px;
+  max-width: 100px;
+}
+
+#acceder {
+  background-color: #8C52FF;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 48px;
+  display:inline-block;         
+  margin: 20px;
+  margin-top:70px;
+  width: 200px
+}
+
+#registrarse{
+  background-color: #8c52ff00;
+  border: none;
+  color: white;
+  padding: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 48px;
+  display:inline-block;         
+  margin: 20px;
+  width: 200px;
+  margin-bottom: 70px;
+}
+
+a{
+  margin-bottom: 40px;
+  color:white;
+}
+
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+@import url(https://fonts.googleapis.com/css?family=Cantarell:400,700italic);
+
+

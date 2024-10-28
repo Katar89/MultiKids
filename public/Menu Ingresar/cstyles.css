@@ -1,0 +1,119 @@
+body {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(https://img.freepik.com/foto-gratis/acercamiento-ninos-disfrutando-juego-didactico_23-2149316939.jpg?t=st=1729882532~exp=1729886132~hmac=c42520b0f543d92dc1f9174f74fcfde457811d62fc78d4f8a1058eada49a8f13&w=1380);
+    background-repeat: no-repeat;
+    background-image: brightness(75%);
+    background-size: 1920px 1280px;
+    font-family: sans-serif;
+    padding: 20px;
+  }
+  
+  h1 {
+    font-size: 40px;
+    margin-top: 0;
+    margin-bottom: 15px;
+  }
+  
+  h2 {
+    font-size: 30px;
+  }
+  
+  .established {
+    font-style: italic;
+  }
+  
+  h1, h2, p, a {
+    margin-top: 20px;
+    text-align: center;
+  }
+  
+  .menu {
+    width: 80%;
+    background-color: rgba(255, 255, 255, 0);
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:300px;
+    padding: 20px;
+    max-width: 235px;
+  }
+  
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  hr {
+    height: 2px;
+    background-color: brown;
+    border-color: brown;
+  }
+  
+  .bottom-line {
+    margin-top: 25px;
+  }
+  
+  h1, h2 {
+    font-family: Impact, serif;
+  }
+  
+  .item p,a {
+    display: inline-block;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 18px;
+  }
+  
+  .flavor, .dessert {
+    text-align: left;
+    width: 75%;
+  }
+  
+  .price {
+    text-align: right;
+    width: 25%;
+  }
+
+  .boton1{
+    
+      background-color: #8C52FF;
+      border: none;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      border-radius: 48px;
+      display:inline-block;         
+      margin: 20px;
+      width: 200px
+  }
+  
+  /* FOOTER */
+  
+  footer {
+    margin-top: 100px;
+    font-size: 14px;
+  }
+  
+  .watermark ,a {
+    margin-bottom: 5px;
+    color: white;
+  }
+  
+  a {
+    color: black;
+  }
+  
+  a:visited {
+    color: black;
+  }
+  
+  a:hover {
+    color: brown;
+  }
+  
+  a:active {
+    color: brown;
+  }
