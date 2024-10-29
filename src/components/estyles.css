@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.container {
+    width: 300px;
+    text-align: center;
+    color: #fff;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 3px;
+    margin-bottom: 7px;
+    border-radius: 13px;
+    border: none;
+    outline: none;
+    background-color: #848484;
+    color: #c2c2c2;
+    text-align: center;
+    font-weight: bold;
+}
+
+.search-bar::placeholder {
+    color: #c2c2c2;
+    opacity: 0.5;
+}
+
+h1 {
+    margin-bottom: 7px;
+    font-size: 1.5em;
+    font-weight: normal;
+}
+
+.students-list {
+    background-color: #BC7878;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+.student-card {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 15px 0;
+    color: #fff;
+}
+
+.boy {
+    background-color: #6F85F6;
+}
+
+.girl {
+    background-color: #B18AFF;
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 10px;
+    background-image: url('../assets/Icono.png');
+    background-size: cover;
+    background-position: center;
+}
+
+.view-all-button {
+    background-color: #B18AFF;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 10px;
+    width: 50%;
+    cursor: pointer;
+    font-size: 1em;
+}
