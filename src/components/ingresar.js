@@ -1,9 +1,10 @@
 import React from 'react';
 import './cstyles.css'; 
+import logo from '../assets/logo.png';
 function Ingresar() {
   return (
     <div>
-    <img src="" alt="Multikids" /> 
+    <img src={logo} alt="Multikids" /> 
     <div className="menu">
       <main>
         <button className="boton1">Ingresar</button>
