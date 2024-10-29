@@ -1,4 +1,3 @@
-// server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -20,6 +19,7 @@ mongoose.connect("mongodb+srv://joseligo:JuanJose142006@db.7jvy7.mongodb.net/Mul
 }).then(() => console.log('Conectado a MongoDB MultiKids'))
   .catch((error) => console.error('Error al conectar a MongoDB', error));
 
-app.use(express.json());
+// Rutas de la API
 app.use('/api', require('./routes/docentes'));
-app.use('/api',require('./routes/loginruta'));
+app.use('/api', require('./routes/loginruta'));
+app.use('/api', require('./routes/estudiantesRoutes'));

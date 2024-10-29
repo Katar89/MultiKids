@@ -1,46 +1,54 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../css/estyles.css';
 import { useNavigate } from 'react-router-dom'; 
+import axios from 'axios';
 
 function Estudiantes() {
-  const navigate = useNavigate(); // Inicializar el hook de navegación
+  const navigate = useNavigate();
 
-  // State to hold search query and list of students
+  // Estado para la búsqueda y lista de estudiantes
   const [searchQuery, setSearchQuery] = useState('');
-  const [students, setStudents] = useState([
-    { name: "Castro Salinas Miguel Angel", gender: "boy", code: generateCode() },
-    { name: "Delgado Vargas Paula Andrea", gender: "girl", code: generateCode() },
-    { name: "Gomez Fernandez Ana Maria", gender: "girl", code: generateCode() },
-    { name: "Hernandez Garcia Jose", gender: "boy", code: generateCode() },
-    { name: "Ortiz Mendoza Laura Isabel", gender: "girl", code: generateCode() },
-    { name: "Perez Ortiz Juan Carlos", gender: "boy", code: generateCode() },
-    { name: "Torres Gutierrez Maria Jose", gender: "girl", code: generateCode() }
-  ]);
+  const [students, setStudents] = useState([]);
 
-  const [newStudentName, setNewStudentName] = useState('');
-  const [newStudentGender, setNewStudentGender] = useState('');
+  // Cargar estudiantes desde el backend
+  useEffect(() => {
+    const fetchStudents = async () => {
+      try {
+        const response = await axios.get('http://localhost:5000/api/estudiantes');
+        setStudents(response.data); // Establecer los estudiantes obtenidos
+      } catch (error) {
+        console.error('Error al obtener estudiantes:', error);
+      }
+    };
 
-  function generateCode() {
-    return Math.floor(10000 + Math.random() * 90000).toString();
-  }
+    fetchStudents();
+  }, []);
 
-  // Filter students based on search query
+  const [formData, setFormData] = useState({
+    Nombre: '',
+    Genero: '',
+    Codigo: ''
+  });
+  const [error, setError] = useState(null);
+
+  // Filtrar estudiantes según la búsqueda
   const filteredStudents = students.filter(student =>
-    student.name.toLowerCase().includes(searchQuery.toLowerCase())
+    student.Nombre.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const handleCreateStudent = () => {
-    if (newStudentName.trim() && newStudentGender.trim()) {
-      const newStudent = {
-        name: newStudentName,
-        gender: newStudentGender.toLowerCase(),
-        code: generateCode(),
-      };
-      setStudents([...students, newStudent]);
-      setNewStudentName('');
-      setNewStudentGender('');
-    } else {
-      alert("Ingrese un nombre y un género");
+  // Manejar el envío del formulario para crear un estudiante
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await axios.post('http://localhost:5000/api/estudiantes', formData);
+      if (response.status === 201) {
+        setStudents([...students, response.data]); // Agregar el nuevo estudiante a la lista
+        setFormData({ Nombre: '', Genero: '', Codigo: '' });
+        setError(null);
+      }
+    } catch (error) {
+      setError('Hubo un error en el registro, intente nuevamente.');
+      console.error('Error en el registro:', error);
     }
   };
 
@@ -63,27 +71,43 @@ function Estudiantes() {
           <div className="students-background"></div>
           <div className="students-list">
             {filteredStudents.map((student, index) => (
-              <StudentCard key={index} name={student.name} gender={student.gender} code={student.code} />
+              <StudentCard key={index} name={student.Nombre} gender={student.Genero} code={student.Codigo} />
             ))}
           </div>
-          <input
-            type="text"
-            className="crearStudent"
-            placeholder="Nombre"
-            value={newStudentName}
-            onChange={(e) => setNewStudentName(e.target.value)}
-          />
-          <input
-            type="text"
-            className="crearGenero"
-            placeholder="Género"
-            value={newStudentGender}
-            onChange={(e) => setNewStudentGender(e.target.value)}
-          />
-          <button className="view-all-button" onClick={handleCreateStudent}>Crear Estudiante</button>
+          <form onSubmit={handleSubmit}>
+            <input
+                id="Nombre" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Nombre'
+                value={formData.Nombre} 
+                onChange={(e) => setFormData({ ...formData, Nombre: e.target.value })}
+            />
+            <input
+                id="Genero" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Genero'
+                value={formData.Genero} 
+                onChange={(e) => setFormData({ ...formData, Genero: e.target.value })}
+            />
+            <input
+                id="Codigo" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Codigo'
+                value={formData.Codigo} 
+                onChange={(e) => setFormData({ ...formData, Codigo: e.target.value })}
+            />
+            {error && <p className="error">{error}</p>}
+            <button className="view-all-button" type="submit">Crear Estudiante</button>
+          </form>
         </div>
       </div>
-      <button className="back-button" onClick={handleBack}>Regresar</button> {/* Botón de regresar */}
+      <button className="back-button" onClick={handleBack}>Regresar</button>
     </div>
   );
 }
