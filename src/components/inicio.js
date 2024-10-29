@@ -53,9 +53,9 @@ const Inicio = () => {
         
           <div className="Actividades">
           <img id="logoActividades" src={logoActividades} alt="Actividades Logo" />
-            Actividades     
+                 
           </div>
-
+          <p className='texto'>Actividades</p>
           <div className="Ajustes">
           <img id="logoAjustes" src={logoAjustes} alt="Ajustes Logo" />
             Ajustes
