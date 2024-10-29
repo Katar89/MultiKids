@@ -1,7 +1,10 @@
 import React, { useState } from 'react';
 import './estyles.css';
+import { useNavigate } from 'react-router-dom'; 
 
 function Estudiantes() {
+  const navigate = useNavigate(); // Inicializar el hook de navegación
+
   // State to hold search query and list of students
   const [searchQuery, setSearchQuery] = useState('');
   const [students, setStudents] = useState([
@@ -13,7 +16,7 @@ function Estudiantes() {
     { name: "Perez Ortiz Juan Carlos", gender: "boy", code: generateCode() },
     { name: "Torres Gutierrez Maria Jose", gender: "girl", code: generateCode() }
   ]);
-  
+
   const [newStudentName, setNewStudentName] = useState('');
   const [newStudentGender, setNewStudentGender] = useState('');
 
@@ -37,8 +40,12 @@ function Estudiantes() {
       setNewStudentName('');
       setNewStudentGender('');
     } else {
-      alert("Ingrese un nombre y un genero");
+      alert("Ingrese un nombre y un género");
     }
+  };
+
+  const handleBack = () => {
+    navigate(-1); // Regresa a la página anterior
   };
 
   return (
@@ -56,7 +63,7 @@ function Estudiantes() {
           <div className="students-background"></div>
           <div className="students-list">
             {filteredStudents.map((student, index) => (
-              <StudentCard key={index} name={student.name} gender={student.gender} code={generateCode()} />
+              <StudentCard key={index} name={student.name} gender={student.gender} code={student.code} />
             ))}
           </div>
           <input
@@ -69,13 +76,14 @@ function Estudiantes() {
           <input
             type="text"
             className="crearGenero"
-            placeholder="Genero"
+            placeholder="Género"
             value={newStudentGender}
             onChange={(e) => setNewStudentGender(e.target.value)}
           />
           <button className="view-all-button" onClick={handleCreateStudent}>Crear Estudiante</button>
         </div>
       </div>
+      <button className="back-button" onClick={handleBack}>Regresar</button> {/* Botón de regresar */}
     </div>
   );
 }
@@ -84,7 +92,7 @@ function StudentCard({ name, gender, code }) {
   return (
     <div className={`student-card ${gender}`}>
       <div className="avatar"></div>
-      <span>{name} | Genero: {gender} | Codigo: {code} </span>
+      <span>{name} | Género: {gender} | Código: {code} </span>
     </div>
   );
 }

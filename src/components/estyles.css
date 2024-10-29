@@ -110,3 +110,16 @@ h1 {
     cursor: pointer;
     font-size: 1em;
 }
+.back-button {
+    position: fixed; /* Fija el botón en una posición */
+    bottom: 20px; /* Distancia desde el fondo */
+    right: 20px; /* Distancia desde la derecha */
+    padding: 10px 20px;
+    font-size: 18px;
+    color: white;
+    background-color: #29B6F6;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
