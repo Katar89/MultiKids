@@ -1,6 +1,7 @@
 .divInicio {
-  background: #333333;
-  margin: 0;
+  background: #33333300;
+  margin: 0px;
+  height:100%;
   font-family: "Open Sans", Helvetica Neue, Helvetica, Arial, sans-serif;
   color: #fff;
   padding-left: 240px;
