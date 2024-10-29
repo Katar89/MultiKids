@@ -66,7 +66,7 @@ const Inicio = () => {
           <p className='texto'>Actividades</p>
           <div className="Ajustes">
           <img id="logoAjustes" src={logoAjustes} alt="Ajustes Logo" />
-            Ajustes
+            Reportes
           </div>
 
           <div className="Ayuda">
