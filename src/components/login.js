@@ -26,7 +26,7 @@ function Login() {
             const response = await axios.post('http://localhost:5000/api/login', formData);
             if (response.status === 200) {
                 console.log('Inicio de sesión exitoso:', response.data);
-                navigate('/inicio'); // Redirige a la página de inicio en caso de éxito
+                navigate('/inicio');
             }
         } catch (error) {
             setError('Credenciales inválidas. Intente nuevamente.');

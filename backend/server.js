@@ -21,5 +21,5 @@ mongoose.connect("mongodb+srv://joseligo:JuanJose142006@db.7jvy7.mongodb.net/Mul
   .catch((error) => console.error('Error al conectar a MongoDB', error));
 
 app.use(express.json());
-app.use('/api/registro', require('./routes/docentes'));
-app.use('/api/login',require('./routes/docentes'));
+app.use('/api', require('./routes/docentes'));
+app.use('/api',require('./routes/loginruta'));
