@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './estyles.css';
+import '../css/estyles.css';
 
 function Estudiantes() {
   // State to hold search query and list of students
@@ -52,7 +52,7 @@ function Estudiantes() {
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />
-          <h1>Estudiantes</h1>
+          <h1 className='h1Estudiante'>Estudiantes</h1>
           <div className="students-background"></div>
           <div className="students-list">
             {filteredStudents.map((student, index) => (

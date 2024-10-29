@@ -1,5 +1,5 @@
 import React from 'react';
-import './istyles.css';
+import '../css/istyles.css';
 import logoEstudiante from '../assets/logoEstudiante.png';
 import logoActividades from '../assets/logoActividades.png';
 import logoAjustes from '../assets/logoAjustes.png';
@@ -17,41 +17,41 @@ const Inicio = () => {
   };
   return (
     
-    <div>
-      <nav className="menu" tabIndex="0">
-        <div className="smartphone-menu-trigger"></div>
-        <header className="avatar">
-          <img
-            src={logoEstudiante}
-            alt="Avatar"
-          />
-          <h2>Docente Yaneth Perez</h2>
-          <h3>correo@ejemplo.com</h3>
-        </header>
-        <ul>
-          <li id="ClasesTag" tabIndex="0" className="icon-clases">
-            <h2>Clases</h2>
-          </li>
-          <li tabIndex="0" className="icon-clase">
-            <span>Fisica</span>
-          </li>
-          <li tabIndex="0" className="icon-clase">
-            <span>Fisica 2</span>
-          </li>
-          <li id="ColaboradoresTag" tabIndex="0" className="icon-colaboradores">
-            <h2>Colaboradores</h2>
-          </li>
-          <li tabIndex="0" className="icon-colaborador">
-            <span>Colaborador 1</span>
-          </li>
-          <li tabIndex="0" className="icon-colaborador">
-            <span>Colaborador 2</span>
-          </li>
-          
-        </ul>
-      </nav>
+    <div className='divInicio'>
+          <div className="app-container">
+      {/* Sección del perfil del docente */}
+      <div className="profile">
+        <div className="profile-image"></div>
+        <h2 className="profile-title">Docente</h2>
+        <h3 className="profile-name">Yanneth Perez</h3>
+        <p className="profile-email">yannethP@gmail.com</p>
+      </div>
+
+      {/* Sección de Clases */}
+      <div className="classes-section">
+        <h4 className="section-title">
+          Clases <span className="view-all">Ver Todo</span>
+        </h4>
+        <div className="class-item">Transicion</div>
+      </div>
+
+      {/* Sección de Colaboradores */}
+      <div className="collaborators-section">
+        <h4 className="section-title">
+          Colaboradores <span className="view-all">Ver Todo</span>
+        </h4>
+        <div className="collaborator-item">
+          <div className="collaborator-image"></div>
+          <span>Maria Janeth</span>
+        </div>
+        <div className="collaborator-item">
+          <div className="collaborator-image"></div>
+          <span>Ana</span>
+        </div>
+      </div>
+    </div>
     
-      <main>
+      <main className='mainInicio'>
         <div className="superContenedor">
           <div className="Estudiantes">
           <img id="logoEstudiantes" src={logoEstudiante} alt="Estudiantes Logo" onClick={handleClick}/>

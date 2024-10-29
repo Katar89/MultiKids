@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'; 
-import './cstyles.css'; 
+import '../css/cstyles.css'; 
 import logo from '../assets/logo.png';
 
 function Ingresar() {
@@ -11,14 +11,14 @@ function Ingresar() {
   };
 
   return (
-    <div>
-      <img src={logo} alt="Multikids" /> 
+      <div>
+      <img src={logo} alt="Multikids" className='imgIngresar'/> 
       <div className="menu">
         <main>
           <button className="boton1" onClick={handleClick}>Ingresar</button>
         </main>
       </div>
-      <footer>
+      <footer className='footerIngresar'>
         <p className="watermark">by BetPlay</p>
       </footer>
     </div>

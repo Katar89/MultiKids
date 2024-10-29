@@ -1,5 +1,5 @@
 import React from 'react';
-import './lstyles.css'; 
+import '../css/lstyles.css'; 
 import logo from '../assets/logo.png'; 
 import { useNavigate } from 'react-router-dom'; 
 
@@ -15,20 +15,20 @@ function Login() {
     
       <main>
         <img src={logo} alt="Multikids logo" id="imagen" />
-        <h1 id="titulo">INGRESAR</h1>
+        <h1 id="titulo" className='h1Login'>INGRESAR</h1>
         
         <form id="survey-form">
           <hr />
           
           <label htmlFor="email" id="correo-label">
-            <p>Correo:</p>
-            <input id="email" type="email" required />
+            <p className='pLogin'>Correo:</p>
+            <input id="email" type="email" required className='inputLogin'/>
           </label>
           <br />
           
           <label htmlFor="contrasena" id="contrasena-label">
-            <p>Password:</p>
-            <input id="contrasena" type="password" minLength="10" maxLength="15" />
+            <p className='pLogin'>Password:</p>
+            <input id="contrasena" type="password" minLength="10" maxLength="15" className='inputLogin'/>
           </label>
           <br />
           
@@ -37,13 +37,6 @@ function Login() {
           <button id="registrarse" type="button">Registrarse</button>
           <br />
           
-          <a 
-            href="https://m.media-amazon.com/images/M/MV5BY2FmZWMxNWMtNTVkZC00ZTcwLTgyMjAtZjJlNjZlYzM0MDA5XkEyXkFqcGc@._V1_QL75_UY281_CR4,0,190,281_.jpg"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Términos y Condiciones de Uso
-          </a>
         </form>
       </main>
     </div>
