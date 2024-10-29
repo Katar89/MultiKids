@@ -27,7 +27,13 @@ function Estudiantes() {
   const [formData, setFormData] = useState({
     Nombre: '',
     Genero: '',
-    Codigo: ''
+    Codigo: '',
+    CineticoCorporal: '',
+    Interpersonal: '',
+    Linguistica: '',
+    Naturalista: '',
+    LogicoMatematica: '',
+    VisualEspacial: ''
   });
   const [error, setError] = useState(null);
 
@@ -43,7 +49,12 @@ function Estudiantes() {
       const response = await axios.post('http://localhost:5000/api/estudiantes', formData);
       if (response.status === 201) {
         setStudents([...students, response.data]); // Agregar el nuevo estudiante a la lista
-        setFormData({ Nombre: '', Genero: '', Codigo: '' });
+        setFormData({ Nombre: '', Genero: '', Codigo: '' , CineticoCorporal: '',
+          Interpersonal: '',
+          Linguistica: '',
+          Naturalista: '',
+          LogicoMatematica: '',
+          VisualEspacial: ''});
         setError(null);
       }
     } catch (error) {
@@ -101,6 +112,60 @@ function Estudiantes() {
                 placeholder='Codigo'
                 value={formData.Codigo} 
                 onChange={(e) => setFormData({ ...formData, Codigo: e.target.value })}
+            />
+            <input
+                id="CineticoCorpora" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Cinetico Corporal'
+                value={formData.CineticoCorpora} 
+                onChange={(e) => setFormData({ ...formData, CineticoCorpora: e.target.value })}
+            />
+            <input
+                id="Interpersonal" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Interpersonal'
+                value={formData.Interpersonal} 
+                onChange={(e) => setFormData({ ...formData, Interpersonal: e.target.value })}
+            />
+            <input
+                id="Linguistica" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Linguistica'
+                value={formData.Linguistica} 
+                onChange={(e) => setFormData({ ...formData, Linguistica: e.target.value })}
+            />
+            <input
+                id="Naturalista" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Naturalista'
+                value={formData.Naturalista} 
+                onChange={(e) => setFormData({ ...formData, Naturalista: e.target.value })}
+            />
+            <input
+                id="LogicoMatematica" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Lógico Matemática'
+                value={formData.LogicoMatematica} 
+                onChange={(e) => setFormData({ ...formData, LogicoMatematica: e.target.value })}
+            />
+            <input
+                id="VisualEspacial" 
+                type="text" 
+                required 
+                className='crearGenero' 
+                placeholder='Visual Espacial'
+                value={formData.VisualEspacial} 
+                onChange={(e) => setFormData({ ...formData, VisualEspacial: e.target.value })}
             />
             {error && <p className="error">{error}</p>}
             <button className="view-all-button" type="submit">Crear Estudiante</button>

@@ -14,10 +14,20 @@ router.get('/estudiantes', async (req, res) => {
 
 // Ruta para crear un nuevo estudiante
 router.post('/estudiantes', async (req, res) => {
-  const { Nombre, Genero, Codigo } = req.body;
+  const { Nombre, Genero, Codigo, CineticoCorporal,
+  Interpersonal,
+  Linguistica,
+  Naturalista,
+  LogicoMatematica,
+  VisualEspacial} = req.body;
 
   try {
-    const nuevoEstudiante = new Estudiante({ Nombre, Genero, Codigo });
+    const nuevoEstudiante = new Estudiante({ Nombre, Genero, Codigo, CineticoCorporal,
+      Interpersonal,
+      Linguistica,
+      Naturalista,
+      LogicoMatematica,
+      VisualEspacial });
     await nuevoEstudiante.save();
     res.status(201).json(nuevoEstudiante);
   } catch (error) {
