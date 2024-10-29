@@ -6,6 +6,7 @@
 }
 
 .body {
+    
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,7 +16,7 @@
 }
 
 .container {
-    width: 300px;
+    width: 450px;
     margin: 0 auto; /* Centra horizontalmente */
     text-align: center;
     color: #fff;
@@ -25,13 +26,12 @@
     justify-content: center;
     position: fixed;
     inset: 0px;
-
-
+    margin-bottom: 200px;
 }
 
-.search-bar {
+.search-bar,.crearStudent, .crearGenero {
     width: 100%;
-    padding: 3px;
+    padding: 10px;
     margin-bottom: 7px;
     border-radius: 13px;
     border: none;
@@ -42,9 +42,18 @@
     font-weight: bold;
 }
 
-.search-bar::placeholder {
+.search-bar::placeholder, .crearStudent::placeholder, .crearGenero::placeholder {
     color: #c2c2c2;
     opacity: 0.5;
+}
+.search-bar{
+    margin-top: 200px;
+}
+.crearStudent{
+    margin-top: 30px;
+}
+.crearGenero{
+    margin-top:20px;
 }
 
 h1 {
@@ -61,6 +70,7 @@ h1 {
 }
 
 .student-card {
+    width: 400px;
     display: flex;
     align-items: center;
     padding: 10px;
@@ -68,6 +78,8 @@ h1 {
     margin: 15px 0;
     color: #fff;
 }
+
+
 
 .boy {
     background-color: #6F85F6;
@@ -82,7 +94,7 @@ h1 {
     height: 30px;
     border-radius: 50%;
     margin-right: 10px;
-    background-image: url('../assets/logo.png');
+    background-image: url('../assets/icono.png');
     background-size: cover;
     background-position: center;
 }
