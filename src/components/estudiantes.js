@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../css/estyles.css';
+import { useNavigate } from 'react-router-dom'; 
 
 function Estudiantes() {
   const navigate = useNavigate(); // Inicializar el hook de navegación
