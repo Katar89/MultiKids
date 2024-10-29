@@ -1,8 +1,15 @@
 import React from 'react';
 import './lstyles.css'; 
 import logo from '../assets/logo.png'; 
+import { useNavigate } from 'react-router-dom'; 
+
 
 function Login() {
+  const navigate = useNavigate(); 
+
+  const handleClick = () => {
+    navigate('/inicio'); 
+  };
   return (
     <div className="form">
     
@@ -25,7 +32,7 @@ function Login() {
           </label>
           <br />
           
-          <button id="acceder" type="submit">Acceder</button>
+          <button id="acceder" type="submit" onClick={handleClick}>Acceder</button>
           <br />
           <button id="registrarse" type="button">Registrarse</button>
           <br />

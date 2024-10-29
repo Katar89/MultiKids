@@ -1,5 +1,5 @@
 body{
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(C:\Users\juand\Documents\multikids\src\assets\logoFondo.jpg);
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../assets/logoFondo.jpg');
   background-repeat: no-repeat;
   background-image: brightness(75%);
   background-size: 1920px 1280px;

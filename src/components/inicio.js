@@ -4,9 +4,14 @@ import logoEstudiante from '../assets/logoEstudiante.png';
 import logoActividades from '../assets/logoActividades.png';
 import logoAjustes from '../assets/logoAjustes.png';
 import logoAyuda from '../assets/logoAyuda.png';
-
+import { useNavigate } from 'react-router-dom'; 
 
 const Inicio = () => {
+  const navigate = useNavigate(); 
+
+  const handleClick = () => {
+    navigate('/estudiantes'); 
+  };
   return (
     
     <div>
@@ -46,7 +51,7 @@ const Inicio = () => {
       <main>
         <div className="superContenedor">
           <div className="Estudiantes">
-          <img id="logoEstudiantes" src={logoEstudiante} alt="Estudiantes Logo" />
+          <img id="logoEstudiantes" src={logoEstudiante} alt="Estudiantes Logo" onClick={handleClick}/>
             Estudiantes 
           </div>
         
