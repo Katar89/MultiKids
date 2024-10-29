@@ -16,8 +16,17 @@
 
 .container {
     width: 300px;
+    margin: 0 auto; /* Centra horizontalmente */
     text-align: center;
     color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    inset: 0px;
+
+
 }
 
 .search-bar {
@@ -48,6 +57,7 @@ h1 {
     background-color: #BC7878;
     border-radius: 5px;
     padding: 10px;
+    display: block;
 }
 
 .student-card {
@@ -72,7 +82,7 @@ h1 {
     height: 30px;
     border-radius: 50%;
     margin-right: 10px;
-    background-image: url('../assets/Icono.png');
+    background-image: url('../assets/logo.png');
     background-size: cover;
     background-position: center;
 }
