@@ -8,9 +8,12 @@ import { useNavigate } from 'react-router-dom';
 
 const Inicio = () => {
   const navigate = useNavigate(); 
-
+  const navigate2 = useNavigate();
   const handleClick = () => {
     navigate('/estudiantes'); 
+  };
+  const handleClick2 = () => {
+    navigate2('/actividades'); 
   };
   return (
     
@@ -57,7 +60,7 @@ const Inicio = () => {
         
         
           <div className="Actividades">
-          <img id="logoActividades" src={logoActividades} alt="Actividades Logo" />
+          <img id="logoActividades" src={logoActividades} alt="Actividades Logo" onClick={handleClick2}/>
                  
           </div>
           <p className='texto'>Actividades</p>

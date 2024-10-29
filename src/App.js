@@ -4,6 +4,7 @@ import Ingresar from './components/ingresar.js';
 import Login from './components/login.js';
 import Inicio from './components/inicio.js';
 import Estudiantes from './components/estudiantes.js';
+import Actividades from './components/Actividades.js';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Route path="/login" element={<Login/>} />
         <Route path='/inicio' element={<Inicio/>}/>
         <Route path='/estudiantes' element={<Estudiantes/>}/>
+        <Route path='/actividades' element={<Actividades/>}/>
       </Routes>
     </Router>
   );
