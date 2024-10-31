@@ -1,6 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 
 function Actividades() {
+    const [students, setStudents] = useState([]); 
+    const [selectedStudent, setSelectedStudent] = useState(null); 
+
+    useEffect(() => {
+        const fetchStudents = async () => {
+            try {
+                const response = await axios.get('http://localhost:5000/api/estudiantes'); // Cambia esto a tu endpoint de estudiantes
+                setStudents(response.data);
+            } catch (error) {
+                console.error('Error al cargar estudiantes', error);
+            }
+        };
+        fetchStudents();
+    }, []);
+
     const actividades = [
         { name: 'Visual Espacial', key: 'visualEspacial', color: '#FFA726' },
         { name: 'Lingüística', key: 'linguistica', color: '#66BB6A' },
@@ -129,6 +145,35 @@ function Actividades() {
         setSelectedIntelligence(null);
         setStep(0);
     };
+    const handleSaveReport = async () => {
+        // Verificación de que percentages tenga un valor válido
+        if (!percentages) {
+            console.error("Percentages no está definido.");
+            return;
+        }
+
+        const reporteData = {
+            estudianteCodigo: selectedStudent?.Codigo ?? selectedStudent, // Enviar solo el código si selectedStudent es un objeto
+            actividadResultados: Object.keys(percentages).reduce((acc, key) => {
+                acc[key] = percentages[key]?.toString() || "0"; // Convertir cada valor a string o establecer un valor por defecto
+                return acc;
+            }, {}),
+            recomendaciones: Object.keys(percentages).reduce((acc, key) => {
+                acc[key] = getRecomendacion(key, percentages[key])?.toString() || ""; // Convertir cada recomendación a string
+                return acc;
+            }, {})
+        };
+    
+        console.log("Intentando guardar el siguiente reporte:", reporteData);
+    
+        try {
+            const response = await axios.post('http://localhost:5000/api/reportes', reporteData);
+            alert(response.data.message);
+        } catch (error) {
+            console.error('Error al guardar el reporte:', error);
+            alert('Error al guardar el reporte');
+        }
+    };
 
     const handleSubmitTest = () => {
         const calcularPorcentaje = (respuestas) => {
@@ -144,7 +189,12 @@ function Actividades() {
         setPercentages(newPercentages);
         setStep(2);
     };
-
+    useEffect(() => {
+        if (percentages) {
+            handleSaveReport();
+        }
+    }, [percentages]);
+    
     const getRecomendacion = (inteligencia, porcentaje) => {
         if (porcentaje <= 20) return recomendaciones[inteligencia][0];
         if (porcentaje <= 40) return recomendaciones[inteligencia][20];
@@ -152,7 +202,7 @@ function Actividades() {
         if (porcentaje <= 80) return recomendaciones[inteligencia][60];
         return recomendaciones[inteligencia][80];
     };
-
+ 
     return (
         <div style={{
             display: 'flex',
@@ -175,32 +225,72 @@ function Actividades() {
             }}>
                 ACTIVIDADES
             </h2>
+            {step === 0 && !selectedStudent && (
+                <div>
+                    <h2 style={{ color: 'white' }}>Selecciona un estudiante</h2>
+                    <center><select onChange={(e) => setSelectedStudent(e.target.value)} value={selectedStudent}>
+                        <option value="">-- Selecciona un estudiante --</option>
+                        {students.map(student => (
+                            <option key={student.Codigo} value={student.Codigo}>
+                                {student.Nombre}
+                            </option>
+                        ))}
+                    </select></center>
+                </div>
+            )}
+            {step === 0 && selectedStudent && (
+                <div>
+                    <h2 style={{
+                        textAlign: 'center',
+                        fontSize: '20px',
+                        fontWeight: 'bold',
+                        marginBottom: '20px',
+                        color: 'white'
+                    }}>Seleccionar actividad para {students.find(student => student.Codigo === selectedStudent)?.Nombre}</h2>
+                    
+                    <div style={{
+                        display: 'grid',
+                        gridTemplateColumns: 'repeat(3, 1fr)',
+                        gap: '20px'
+                    }}>
+                        {actividades.map((activity, index) => (
+                            <div key={index} style={{
+                                backgroundColor: activity.color,
+                                width: '300px',
+                                height: '300px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                color: 'white',
+                                fontWeight: 'bold',
+                                fontSize: '24px',
+                                borderRadius: '12px',
+                                textAlign: 'center',
+                                boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
+                                cursor: 'pointer'
+                            }} onClick={() => handleSelectIntelligence(activity.key)}>
+                                {activity.name}
+                            </div>
+                        ))}
+                    </div>
 
-            {step === 0 && (
-                <div style={{
-                    display: 'grid',
-                    gridTemplateColumns: 'repeat(3, 1fr)',
-                    gap: '20px'
-                }}>
-                    {actividades.map((activity, index) => (
-                        <div key={index} style={{
-                            backgroundColor: activity.color,
-                            width: '300px',
-                            height: '300px',
-                            display: 'flex',
-                            alignItems: 'center',
-                            justifyContent: 'center',
+                    <div style={{
+                        display: 'flex',
+                        justifyContent: 'center',
+                        marginTop: '20px'
+                    }}>
+                        <button onClick={handleSubmitTest} style={{
+                            padding: '10px 20px',
+                            backgroundColor: '#FF7043',
+                            border: 'none',
+                            borderRadius: '5px',
                             color: 'white',
-                            fontWeight: 'bold',
-                            fontSize: '24px',
-                            borderRadius: '12px',
-                            textAlign: 'center',
-                            boxShadow: '0 4px 10px rgba(0, 0, 0, 0.2)',
                             cursor: 'pointer'
-                        }} onClick={() => handleSelectIntelligence(activity.key)}>
-                            {activity.name}
-                        </div>
-                    ))}
+                        }}>
+                            Finalizar Test
+                        </button>
+                        <button onClick={() => { setSelectedStudent(null); setStep(0); }} style={{ marginLeft: '10px' }}>Escoger Otro Estudiante</button>
+                    </div>
                 </div>
             )}
 
@@ -237,17 +327,10 @@ function Actividades() {
                     }}>
                         Guardar Respuestas
                     </button>
-                    <button onClick={handleSubmitTest} style={{
-                        padding: '10px 20px',
-                        backgroundColor: '#FF7043',
-                        border: 'none',
-                        borderRadius: '5px',
-                        color: 'white',
-                        cursor: 'pointer',
-                        marginTop: '10px',
-                        marginLeft: '10px'
+                    <button onClick={() => setStep(0)} style={{
+                        padding: '10px 20px', backgroundColor: '#AB47BC', border: 'none', borderRadius: '5px', color: 'white', cursor: 'pointer', marginTop: '20px'
                     }}>
-                        Finalizar Test
+                        Regresar
                     </button>
                 </div>
             )}

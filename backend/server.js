@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const app = express();
+const reportesRoutes = require('./routes/reportesRoutes');
 
 // Iniciar el servidor
 const PORT = process.env.PORT || 5000;
@@ -23,3 +24,4 @@ mongoose.connect("mongodb+srv://joseligo:JuanJose142006@db.7jvy7.mongodb.net/Mul
 app.use('/api', require('./routes/docentes'));
 app.use('/api', require('./routes/loginruta'));
 app.use('/api', require('./routes/estudiantesRoutes'));
+app.use('/api/reportes', reportesRoutes);
