@@ -26,13 +26,7 @@ function Estudiantes() {
   const [formData, setFormData] = useState({
     Nombre: '',
     Genero: '',
-    Codigo: '',
-    CineticoCorporal: '',
-    Interpersonal: '',
-    Linguistica: '',
-    Naturalista: '',
-    LogicoMatematica: '',
-    VisualEspacial: ''
+    Codigo: ''
   });
   const [error, setError] = useState(null);
 

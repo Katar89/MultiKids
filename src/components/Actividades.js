@@ -139,7 +139,7 @@ function Actividades() {
             ...prev,
             [selectedIntelligence]: prev[selectedIntelligence].map((resp, i) => (i === index ? value : resp))
         }));
-    };
+    };  
 
     const handleSaveResponses = () => {
         setSelectedIntelligence(null);

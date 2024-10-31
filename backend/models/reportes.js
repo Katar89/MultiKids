@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const Reportes = mongoose.model('Reportes',{
     estudianteCodigo: {
         type: String,
-        required: true
+        of: String
     },
     actividadResultados: {
         type: Map,

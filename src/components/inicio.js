@@ -16,19 +16,6 @@ const Inicio = () => {
   const handleClick2 = () => {
     navigate2('/actividades'); 
   };
-  const [docente, setDocente] = useState(null);
-  useEffect(() => {
-    const fetchLoggedInDocente = async () => {
-      try {
-        // Replace with actual endpoint and params if needed
-        const response = await axios.get('http://localhost:5000/api/docentes'); 
-        setDocente(response.data);
-      } catch (error) {
-        console.error('Error al cargar el docente', error);
-      }
-    };
-    fetchLoggedInDocente();
-  }, []);
   return (
     
     <div className='divInicio'>
@@ -37,14 +24,10 @@ const Inicio = () => {
       <div className="profile">
         <div className="profile-image"></div>
         <h2 className="profile-title">Docente</h2>
-        {docente ? (
             <>
-              <h3 className="profile-name">{docente.name}</h3>
-              <p className="profile-email">{docente.email}</p>
+              <h3 className="profile-name">prueba</h3>
+              <p className="profile-email">prueba</p>
             </>
-          ) : (
-            <p>Loading...</p>
-          )}
       </div>
 
       {/* Sección de Clases */}
