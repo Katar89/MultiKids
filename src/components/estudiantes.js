@@ -49,7 +49,12 @@ function Estudiantes() {
       const response = await axios.post('http://localhost:5000/api/estudiantes', formData);
       if (response.status === 201) {
         setStudents([...students, response.data]); // Agregar el nuevo estudiante a la lista
-        setFormData({ Nombre: '', Genero: '', Codigo: '' });
+        setFormData({ Nombre: '', Genero: '', Codigo: '' , CineticoCorporal: '',
+          Interpersonal: '',
+          Linguistica: '',
+          Naturalista: '',
+          LogicoMatematica: '',
+          VisualEspacial: ''});
         setError(null);
       }
     } catch (error) {
@@ -109,13 +114,13 @@ function Estudiantes() {
                 onChange={(e) => setFormData({ ...formData, Codigo: e.target.value })}
             />
             <input
-                id="CineticoCorporal" 
+                id="CineticoCorpora" 
                 type="text" 
                 required 
                 className='crearGenero' 
                 placeholder='Cinetico Corporal'
-                value={formData.CineticoCorporal} 
-                onChange={(e) => setFormData({ ...formData, CineticoCorporal: e.target.value })}
+                value={formData.CineticoCorpora} 
+                onChange={(e) => setFormData({ ...formData, CineticoCorpora: e.target.value })}
             />
             <input
                 id="Interpersonal" 
