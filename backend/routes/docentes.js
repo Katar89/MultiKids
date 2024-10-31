@@ -21,6 +21,20 @@ router.post('/registro', async (req, res) => {
         res.status(500).json({ mensaje: 'Error al registrar el docente' });
     }
 });
+router.get('/:codigo', async (req, res) => {
+  const { Correo } = req.params;
+
+  try {
+      const docente = await Docente.findOne({ Correo });
+      if (!docente) {
+          return res.status(404).json({ mensaje: 'Estudiante no encontrado' });
+      }
+      return res.json(docente); // Devuelve el estudiante encontrado
+  } catch (err) {
+      console.error('Error al seleccionar el docente:', err);
+      return res.status(500).json({ mensaje: 'Error del servidor' });
+  }
+});
 
 // Ruta para el inicio de sesión
 
