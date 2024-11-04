@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import '../css/astyles.css'
 function Actividades() {
     const [students, setStudents] = useState([]); 
     const [selectedStudent, setSelectedStudent] = useState(null); 
@@ -204,7 +204,8 @@ function Actividades() {
     };
  
     return (
-        <div style={{
+        
+        <div className="ContenedorActividades"style={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -212,7 +213,8 @@ function Actividades() {
             padding: '20px',
             backgroundColor: '#1E1E1E',
             minHeight: '100vh'
-        }}>
+         }}>
+        
             <h2 style={{
                 marginBottom: '30px',
                 fontSize: '42px',
