@@ -1,0 +1,91 @@
+/* Container setup */
+.reportes-origen {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 35vw;
+    width: 200%;
+    height: 100vh;
+    background-color: #222;
+  }
+  
+  .reportes-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  
+  /* Main container */
+  .reportes-container {
+    background-color: #333;
+    width: 80%;
+    max-width: 600px;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    text-align: center;
+  }
+  
+  /* Title styling */
+  .h1Reporte {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #fff;
+  }
+  
+  /* Search bar styling */
+  .search-bar {
+    width: 80%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 13px;
+    border: none;
+    outline: none;
+    background-color: #848484;
+    color: #c2c2c2;
+    text-align: center;
+    font-weight: bold;
+  }
+  
+  .search-bar::placeholder {
+    color: #c2c2c2;
+    opacity: 0.5;
+  }
+  
+  /* Report square styling */
+  .report-square {
+    width: 300px;
+    height: 300px;
+    background-color: #BC7878;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px auto;
+    color: #fff;
+  }
+  
+  .report-square h2 {
+    margin: 0;
+    font-size: 1.5em;
+  }
+  
+  .report-square p {
+    margin-top: 5px;
+    font-size: 1em;
+  }
+  
+  /* Back button styling */
+  .back-button {
+    margin-top: 20px;
+    background-color: #B18AFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1em;
+  }
+  

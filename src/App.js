@@ -6,6 +6,7 @@ import Inicio from './components/inicio.js';
 import Estudiantes from './components/estudiantes.js';
 import Actividades from './components/Actividades.js';
 import Registro from './components/registro.js';
+import Reportes from './components/Reportes.js';
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
         <Route exact path='/inicio'  element={<Inicio/>}/>
         <Route exact path='/estudiantes'  element={<Estudiantes/>}/>
         <Route exact path='/actividades'  element={<Actividades/>}/>
+        <Route exact path='/reportes'  element={<Reportes/>}/>
       </Routes>
     </Router>
   );
