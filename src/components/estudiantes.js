@@ -12,12 +12,10 @@ function Estudiantes() {
   const [docente, setDocente] = useState(null); // Estado para almacenar información del profesor
   
   useEffect(() => {
-    // Obtener datos del docente autenticado desde el almacenamiento local
     const storedDocente = JSON.parse(localStorage.getItem('docente'));
     if (storedDocente) {
       setDocente(storedDocente);
     } else {
-      // Si no hay un docente autenticado, redirigir al inicio de sesión
       navigate('/login');
     }
   }, [navigate]);
@@ -26,7 +24,7 @@ function Estudiantes() {
     const fetchStudents = async () => {
       try {
         const response = await axios.get('http://localhost:5000/api/estudiantes');
-        setStudents(response.data); // Establecer los estudiantes obtenidos
+        setStudents(response.data);
       } catch (error) {
         console.error('Error al obtener estudiantes:', error);
       }
@@ -37,12 +35,11 @@ function Estudiantes() {
 
   const [formData, setFormData] = useState({
     Nombre: '',
-    Genero: '',
+    Genero: 'niño', // Valor por defecto para el campo de selección
     Codigo: ''
   });
   const [error, setError] = useState(null);
 
-  // Filtrar estudiantes según la búsqueda
   const filteredStudents = students.filter(student => {
     const nameMatch = student.Nombre.toLowerCase().includes(searchQuery.toLowerCase());
     const codeMatch = student.Codigo.toLowerCase().includes(searchQuery.toLowerCase());
@@ -50,15 +47,13 @@ function Estudiantes() {
     return nameMatch || codeMatch || genderMatch;
   });
   
-
-  // Manejar el envío del formulario para crear un estudiante
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       const response = await axios.post('http://localhost:5000/api/estudiantes', formData);
       if (response.status === 201) {
-        setStudents([...students, response.data]); // Agregar el nuevo estudiante a la lista
-        setFormData({ Nombre: '', Genero: '', Codigo: ''});
+        setStudents([...students, response.data]);
+        setFormData({ Nombre: '', Genero: 'niño', Codigo: ''});
         setError(null);
       }
     } catch (error) {
@@ -68,7 +63,7 @@ function Estudiantes() {
   };
 
   const handleBack = () => {
-    navigate(-1); // Regresa a la página anterior
+    navigate(-1);
   };
 
   return (
@@ -99,15 +94,16 @@ function Estudiantes() {
                 value={formData.Nombre} 
                 onChange={(e) => setFormData({ ...formData, Nombre: e.target.value })}
             />
-            <input
-                id="Genero" 
-                type="text" 
-                required 
-                className='crearGenero' 
-                placeholder='Genero'
-                value={formData.Genero} 
+            <select
+                id="Genero"
+                required
+                className='crearGenero'
+                value={formData.Genero}
                 onChange={(e) => setFormData({ ...formData, Genero: e.target.value })}
-            />
+            >
+                <option value="niño">Niño</option>
+                <option value="niña">Niña</option>
+            </select>
             <input
                 id="Codigo" 
                 type="text" 
@@ -121,8 +117,8 @@ function Estudiantes() {
             <button className="view-all-button" type="submit">Crear Estudiante</button>
           </form>
           <center><button className="back-button" onClick={handleBack}>
-                        Regresar
-      </button></center>
+            Regresar
+          </button></center>
         </div>
       </div>
     </div>
