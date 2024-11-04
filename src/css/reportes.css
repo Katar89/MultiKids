@@ -1,0 +1,115 @@
+/* Container setup */
+.reportes-origen {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: #222;
+  overflow: hidden; /* Evitar que el contenedor principal haga scroll */
+}
+
+.reportes-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 90%;
+  max-width: 1200px;
+  overflow-y: auto; /* Hacer que este contenedor tenga scroll si es necesario */
+  max-height: 90vh; /* Limitar la altura para que no sobrepase el contenedor principal */
+}
+
+/* Main container */
+.reportes-container {
+  background-color: #333;
+  width: 100%;
+  padding: 20px;
+  border-radius: 10px;
+  color: #fff;
+  text-align: center;
+}
+
+/* Title styling */
+.h1Reporte {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Search bar styling */
+.search-bar {
+  width: 80%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 13px;
+  border: none;
+  outline: none;
+  background-color: #848484;
+  color: #c2c2c2;
+  text-align: center;
+  font-weight: bold;
+}
+
+.search-bar::placeholder {
+  color: #c2c2c2;
+  opacity: 0.5;
+}
+
+/* Report list container for horizontal alignment */
+.reports-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px; /* Space between report squares */
+  justify-content: center; /* Center align reports */
+  margin-top: 20px;
+}
+
+/* Report square styling */
+.report-square {
+  width: 280px;
+  height: auto;
+  min-height: 250px;
+  background-color: #BC7878;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.report-square h2 {
+  margin: 0;
+  font-size: 1.3em;
+}
+
+.report-square ul {
+  list-style-type: none;
+  padding: 0;
+  margin-top: 10px;
+}
+
+.report-square li {
+  font-size: 0.9em;
+  margin: 5px 0;
+}
+
+/* Back button styling */
+.back-button {
+  margin-top: 20px;
+  background-color: #B18AFF;
+  color: #fff;
+  border: none;
+  padding: 5px 10px; /* Reducir el padding para hacerlo más pequeño */
+  border-radius: 5px; /* Hacer el borde más redondeado */
+  cursor: pointer;
+  font-size: 0.8em; /* Reducir el tamaño de la fuente */
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background-color: #9b6ae2;
+}

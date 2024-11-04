@@ -75,3 +75,14 @@
 .tw-followCard-stopFollow {
   display: none;
 }
+.LogoutButton {
+  padding: 10px 20px;
+  background-color: #ff4c4c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+.LogoutButton:hover {
+  background-color: #ff1a1a;
+}

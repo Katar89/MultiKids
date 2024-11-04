@@ -22,7 +22,15 @@ router.post('/registro', async (req, res) => {
     }
 });
 
+router.get('/docentes', async (req, res) => {
+    try {
+      const docentes = await Docente.find();
+      res.json(docentes);
+    } catch (error) {
+      res.status(500).json({ mensaje: 'Error al obtener docentes' });
+    }
+  });
+  
 
-// Ruta para el inicio de sesión
 
 module.exports = router;

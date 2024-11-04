@@ -25,7 +25,7 @@ router.post('/estudiantes', async (req, res) => {
   }
 });
 
-router.get('/:codigo', async (req, res) => {
+router.get('/codigo/:codigo', async (req, res) => {
   const { Codigo } = req.params;
 
   try {

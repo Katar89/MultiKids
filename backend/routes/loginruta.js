@@ -20,7 +20,8 @@ router.post('/login', async (req, res) => {
             return res.status(401).json({ mensaje: 'Credenciales inválidas' });
         }
 
-        res.status(200).json({ mensaje: 'Inicio de sesión exitoso', docente });
+        const docenteData = { Nombre: docente.Nombre, Apellido: docente.Apellido, Correo: docente.Correo };
+        res.status(200).json({ mensaje: 'Inicio de sesión exitoso', docente: docenteData });
     } catch (error) {
         console.error('Error en el inicio de sesión:', error);
         res.status(500).json({ mensaje: 'Error en el servidor' });

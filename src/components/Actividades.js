@@ -1,9 +1,26 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import '../css/astyles.css'
 function Actividades() {
     const [students, setStudents] = useState([]); 
     const [selectedStudent, setSelectedStudent] = useState(null); 
+    const navigate = useNavigate();
+    const handleBack = () => {
+        navigate(-1);
+      };
+    const [docente, setDocente] = useState(null); // Estado para almacenar información del profesor
+  
+    useEffect(() => {
+        // Obtener datos del docente autenticado desde el almacenamiento local
+        const storedDocente = JSON.parse(localStorage.getItem('docente'));
+        if (storedDocente) {
+          setDocente(storedDocente);
+        } else {
+          // Si no hay un docente autenticado, redirigir al inicio de sesión
+          navigate('/login');
+        }
+      }, [navigate]);  
 
     useEffect(() => {
         const fetchStudents = async () => {
@@ -41,93 +58,95 @@ function Actividades() {
 
     const preguntas = {
         visualEspacial: [
-            "¿El estudiante puede visualizar imágenes mentales con facilidad?",
-            "¿Muestra interés en actividades como dibujo o modelado?",
-            "¿Es bueno interpretando gráficos y diagramas?",
-            "¿Se orienta fácilmente en espacios nuevos o desconocidos?",
-            "¿Disfruta de actividades que implican construcción, diseño o manipulación visual?"
+            "¿Al niño le gusta dibujar o hacer construcciones con bloques?",
+            "¿Disfruta mirando imágenes, colores y formas?",
+            "¿Puede recordar lugares que ha visitado?",
+            "¿Se orienta bien en lugares nuevos, como su escuela o la casa de un amigo?",
+            "¿Le gusta armar rompecabezas o construir cosas?"
         ],
         linguistica: [
-            "¿El estudiante tiene facilidad para leer y escribir?",
-            "¿Le gusta contar historias o hablar en público?",
-            "¿Muestra habilidad para aprender nuevos idiomas?",
-            "¿Tiene un vocabulario más amplio que la mayoría de sus compañeros?",
-            "¿Disfruta de juegos de palabras o rompecabezas verbales?"
+            "¿Le gusta escuchar o contar cuentos?",
+            "¿Disfruta mirando libros o que le lean?",
+            "¿Le gustan los juegos con palabras, como las rimas?",
+            "¿Le es fácil recordar palabras nuevas?",
+            "¿Le gusta conversar con los demás y compartir historias?"
         ],
         cineticoCorporal: [
-            "¿El estudiante se destaca en actividades físicas como deportes o danza?",
-            "¿Tiene buen control sobre sus movimientos corporales?",
-            "¿Disfruta de actividades que implican el uso de sus manos, como el bricolaje?",
-            "¿Se le facilita el aprendizaje a través del movimiento físico?",
-            "¿Prefiere actividades físicas a actividades académicas?"
+            "¿El niño se destaca en actividades físicas como saltar o bailar?",
+            "¿Tiene buen control sobre sus movimientos al correr o brincar?",
+            "¿Le gusta usar sus manos para actividades como dibujar o armar bloques?",
+            "¿Aprende mejor cuando puede moverse o jugar?",
+            "¿Prefiere estar en movimiento más que quedarse sentado?"
         ],
         interpersonal: [
-            "¿El estudiante se comunica bien con sus compañeros?",
-            "¿Muestra empatía hacia los demás?",
-            "¿Es un buen líder o mediador en situaciones de grupo?",
-            "¿Le gusta trabajar en equipo más que individualmente?",
-            "¿Entiende las emociones y perspectivas de los demás fácilmente?"
+            "¿Es amigable y le gusta jugar con otros niños?",
+            "¿Ayuda a otros cuando tienen problemas?",
+            "¿Es bueno liderando juegos o actividades?",
+            "¿Prefiere trabajar en equipo que solo?",
+            "¿Entiende cómo se sienten los otros niños?"
         ],
         logicoMatematica: [
-            "¿El estudiante disfruta resolviendo problemas matemáticos?",
-            "¿Muestra interés en rompecabezas lógicos?",
-            "¿Le gustan las actividades que implican clasificaciones o análisis?",
-            "¿Tiene habilidad para hacer cálculos rápidamente?",
-            "¿Tiende a buscar patrones o secuencias en la información?"
+            "¿Le gusta contar cosas o jugar con números?",
+            "¿Disfruta juegos de construcción y rompecabezas?",
+            "¿Le gusta clasificar objetos por colores, formas o tamaños?",
+            "¿Encuentra patrones o secuencias en las cosas?",
+            "¿Tiene facilidad para resolver problemas sencillos?"
         ],
         naturalista: [
-            "¿El estudiante tiene interés por los animales y la naturaleza?",
-            "¿Es capaz de distinguir diferencias entre especies, plantas o animales?",
-            "¿Muestra curiosidad por cómo funcionan los ecosistemas?",
-            "¿Le gusta pasar tiempo al aire libre observando su entorno?",
-            "¿Disfruta de actividades relacionadas con la naturaleza, como jardinería o acampada?"
-        ],
+            "¿Le interesan los animales y la naturaleza?",
+            "¿Puede distinguir entre diferentes plantas o animales?",
+            "¿Le gusta explorar y observar su entorno?",
+            "¿Disfruta salir al aire libre, como al parque o al campo?",
+            "¿Le gusta cuidar de plantas o mascotas?"
+        ]
     };
+    
 
     const recomendaciones = {
         visualEspacial: {
-            0: "Explora actividades básicas de dibujo y juegos visuales para iniciar el desarrollo de esta habilidad.",
-            20: "Intenta crear mapas mentales o practicar con rompecabezas para fortalecer esta inteligencia.",
-            40: "Desarrolla habilidades con actividades de diseño básico o programas de modelado 2D.",
-            60: "Practica diseño en 3D y actividades complejas como arquitectura o fotografía.",
-            80: "Participa en proyectos de diseño visual avanzado, como animación digital o arquitectura."
+            0: "Fomenta el dibujo libre y actividades con colores y formas.",
+            20: "Ofrece rompecabezas simples o juegos de bloques.",
+            40: "Anímalo a crear construcciones más complejas con bloques.",
+            60: "Introduce actividades de dibujo detallado y modelado básico.",
+            80: "Ofrece retos con construcciones avanzadas o proyectos de arte."
         },
         linguistica: {
-            0: "Realiza ejercicios básicos de vocabulario y lectura guiada para mejorar la comprensión.",
-            20: "Involúcrate en lecturas cortas y ejercicios de escritura creativa básica.",
-            40: "Intensifica con escritura de cuentos cortos y prácticas de oratoria.",
-            60: "Desarrolla habilidades en escritura formal y presenta en debates o exposiciones.",
-            80: "Publica escritos o artículos y explora habilidades en múltiples idiomas."
+            0: "Lee cuentos cortos y exploren palabras nuevas juntos.",
+            20: "Involúcralo en juegos de palabras y rimas sencillas.",
+            40: "Fomenta la escritura de cuentos cortos o poemas simples.",
+            60: "Anímalo a leer en voz alta y a participar en pequeñas presentaciones.",
+            80: "Ofrece oportunidades para escribir cuentos o compartir historias con otros."
         },
         cineticoCorporal: {
-            0: "Practica ejercicios básicos de coordinación como juegos físicos simples.",
-            20: "Realiza actividades de baja intensidad como caminatas y juegos de coordinación.",
-            40: "Involúcrate en deportes moderados y actividades como el yoga.",
-            60: "Desarrolla habilidades físicas en deportes intensivos o danzas especializadas.",
-            80: "Practica deportes de alto rendimiento o disciplinas físicas de competencia."
+            0: "Fomenta juegos de coordinación como saltar y correr.",
+            20: "Involúcralo en actividades de baile y juegos físicos moderados.",
+            40: "Introdúcelo a deportes básicos o actividades de expresión corporal.",
+            60: "Anímalo a participar en deportes de equipo o clases de baile.",
+            80: "Fomenta su participación en competencias o presentaciones de baile."
         },
         interpersonal: {
-            0: "Participa en juegos colaborativos básicos para iniciar el desarrollo de habilidades sociales.",
-            20: "Involúcrate en actividades de grupo y proyectos colaborativos simples.",
-            40: "Intensifica en roles de equipo y participa en debates para mejorar la empatía.",
-            60: "Desarrolla habilidades de liderazgo participando como líder en proyectos de equipo.",
-            80: "Desarrolla proyectos de alto impacto en la comunidad, liderando equipos."
+            0: "Invítalo a jugar con otros niños en juegos colaborativos.",
+            20: "Involúcralo en proyectos simples en grupo, como armar rompecabezas juntos.",
+            40: "Dale roles de responsabilidad en juegos en equipo.",
+            60: "Anímalo a liderar actividades en equipo.",
+            80: "Fomenta su participación en actividades de liderazgo en grupo."
         },
         logicoMatematica: {
-            0: "Realiza juegos básicos de lógica como rompecabezas simples.",
-            20: "Intenta resolver problemas matemáticos sencillos y juegos de lógica básicos.",
-            40: "Practica problemas complejos y participa en actividades de razonamiento lógico.",
-            60: "Desarrolla tus habilidades con problemas avanzados y análisis de datos.",
-            80: "Participa en proyectos de investigación o desarrollo de algoritmos complejos."
+            0: "Introduce juegos de lógica como rompecabezas simples.",
+            20: "Dale problemas básicos de contar o clasificar objetos.",
+            40: "Ofrece juegos de patrones y secuencias más complejos.",
+            60: "Introduce problemas matemáticos y actividades de lógica.",
+            80: "Fomenta proyectos de investigación básica en ciencias o matemáticas."
         },
         naturalista: {
-            0: "Realiza observaciones básicas de la naturaleza como paseos simples.",
-            20: "Participa en actividades de cuidado de plantas o mascotas.",
-            40: "Involúcrate en proyectos ecológicos o estudios de flora y fauna.",
-            60: "Desarrolla investigaciones de campo y actividades de conservación.",
-            80: "Participa en proyectos ambientales de alto impacto o estudios avanzados en ecología."
+            0: "Salgan a observar la naturaleza en el parque.",
+            20: "Anímalo a cuidar una planta o mascota.",
+            40: "Involúcralo en proyectos de jardín o exploración de la naturaleza.",
+            60: "Llévalo a excursiones para estudiar la naturaleza.",
+            80: "Participa en proyectos de conservación y estudio ambiental."
         }
     };
+    
 
     const handleSelectIntelligence = (key) => {
         setSelectedIntelligence(key);
@@ -204,7 +223,8 @@ function Actividades() {
     };
  
     return (
-        <div style={{
+        
+        <div className="ContenedorActividades"style={{
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -212,7 +232,8 @@ function Actividades() {
             padding: '20px',
             backgroundColor: '#1E1E1E',
             minHeight: '100vh'
-        }}>
+         }}>
+        
             <h2 style={{
                 marginBottom: '30px',
                 fontSize: '42px',
@@ -236,6 +257,9 @@ function Actividades() {
                             </option>
                         ))}
                     </select></center>
+                    <center><button className="back-button" onClick={handleBack}>
+                        Regresar
+                    </button></center>
                 </div>
             )}
             {step === 0 && selectedStudent && (

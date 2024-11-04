@@ -9,6 +9,18 @@ function Estudiantes() {
   // Estado para la búsqueda y lista de estudiantes
   const [searchQuery, setSearchQuery] = useState('');
   const [students, setStudents] = useState([]);
+  const [docente, setDocente] = useState(null); // Estado para almacenar información del profesor
+  
+  useEffect(() => {
+    // Obtener datos del docente autenticado desde el almacenamiento local
+    const storedDocente = JSON.parse(localStorage.getItem('docente'));
+    if (storedDocente) {
+      setDocente(storedDocente);
+    } else {
+      // Si no hay un docente autenticado, redirigir al inicio de sesión
+      navigate('/login');
+    }
+  }, [navigate]);
 
   useEffect(() => {
     const fetchStudents = async () => {
@@ -31,9 +43,13 @@ function Estudiantes() {
   const [error, setError] = useState(null);
 
   // Filtrar estudiantes según la búsqueda
-  const filteredStudents = students.filter(student =>
-    student.Nombre.toLowerCase().includes(searchQuery.toLowerCase())
-  );
+  const filteredStudents = students.filter(student => {
+    const nameMatch = student.Nombre.toLowerCase().includes(searchQuery.toLowerCase());
+    const codeMatch = student.Codigo.toLowerCase().includes(searchQuery.toLowerCase());
+    const genderMatch = student.Genero.toLowerCase().includes(searchQuery.toLowerCase());
+    return nameMatch || codeMatch || genderMatch;
+  });
+  
 
   // Manejar el envío del formulario para crear un estudiante
   const handleSubmit = async (e) => {
@@ -104,9 +120,11 @@ function Estudiantes() {
             {error && <p className="error">{error}</p>}
             <button className="view-all-button" type="submit">Crear Estudiante</button>
           </form>
+          <center><button className="back-button" onClick={handleBack}>
+                        Regresar
+      </button></center>
         </div>
       </div>
-      <button className="back-button" onClick={handleBack}>Regresar</button>
     </div>
   );
 }

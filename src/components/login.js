@@ -25,7 +25,11 @@ function Login() {
         try {
             const response = await axios.post('http://localhost:5000/api/login', formData);
             if (response.status === 200) {
+                // Guardar los datos del docente en localStorage
+                localStorage.setItem('docente', JSON.stringify(response.data.docente));
                 console.log('Inicio de sesión exitoso:', response.data);
+
+                // Redirigir a la página de inicio
                 navigate('/inicio');
             }
         } catch (error) {

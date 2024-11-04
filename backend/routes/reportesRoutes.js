@@ -28,4 +28,14 @@ router.post('/', async (req, res) => {
     }
 });
 
+router.get('/', async (req, res) => {
+    try {
+        const reportes = await Reporte.find();
+        res.json(reportes);
+    } catch (error) {
+        console.error('Error al obtener reportes:', error);
+        res.status(500).json({ error: 'Error al obtener reportes' });
+    }
+});
+
 module.exports = router;
