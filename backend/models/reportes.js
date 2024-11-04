@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
-const Reportes = mongoose.model('Reportes',{
+const reportesSchema = new mongoose.Schema({
     estudianteCodigo: {
-        type: String,
-        of: String
+        type: String, 
+        required: true
     },
     actividadResultados: {
         type: Map,
@@ -15,4 +15,6 @@ const Reportes = mongoose.model('Reportes',{
     }
 }, { timestamps: true });
 
-module.exports = Reportes;
+const Reporte = mongoose.model('Reporte', reportesSchema);
+
+module.exports = Reporte;
