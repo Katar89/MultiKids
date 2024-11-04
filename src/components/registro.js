@@ -42,11 +42,11 @@ function Registro() {
 
   return (
     <div className="form">
-      <main>
-        <img src={logo} alt="Multikids logo" id="imagen" />
-        <h1 id="titulo" className='h1Login'>REGISTRO DOCENTE</h1>
-        
+      <main className="formMain">
+      <img src={logo} alt="Multikids logo" id="imagen" />
+      <h1 id="titulo2" className='h1Login'>REGISTRO DOCENTE</h1>
         <form className="formRegistro" onSubmit={handleSubmit}>
+       
           <hr />
           
           <label htmlFor="nombre" id="nombre-label">

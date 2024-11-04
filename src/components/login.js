@@ -40,8 +40,8 @@ function Login() {
 
     return (
         <div className="form">
-            <main>
-                <img src={logo} alt="Multikids logo" id="imagen" />
+            <main className="mainFormulario">
+                <img src={logo} alt="Multikids logo" id="imagenlogin"></img>
                 <h1 id="titulo" className='h1Login'>INGRESAR</h1>
                 
                 <form id="survey-form" onSubmit={handleSubmit}>

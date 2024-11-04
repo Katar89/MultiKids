@@ -4,29 +4,42 @@ url('https://matiaslescano.com.ar/static/fonts/pixelicious.css');
 url('https://fonts.googleapis.com/css?family=Cantarell:400,700italic');
 
 #tituloInvisible{
-  color:transparent
+  color:transparent;
 }
 
 .formRegistro{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   background-color: #3d3d3d;
   opacity: 80%;
-  width: 50%;
-  margin-left: auto;
+  width: 300px;
+  margin-left: 18vh;
   margin-right: auto;
-  margin-top: 50px;
+  margin-top: -800px;
   margin-bottom: -35px;
   padding: 20px;
   max-width: 400px;
   text-align: center;
-  border-radius: 25px;;
+  border-radius: 25px;
 }
 
+#imagen{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left:300px;
+}
 
-.h1Login {
+#titulo2 {
+  display: flex;
+  flex-direction: column;
   font-family: 'Cantarell', sans-serif;
   font-size: 2em;
   font-weight: bold;
-  color:rgb(255, 255, 255);
+  color:rgba(255, 255, 255, 0);
   margin-bottom: 2px;
 }
 
@@ -34,11 +47,11 @@ url('https://fonts.googleapis.com/css?family=Cantarell:400,700italic');
 .pRegistro {
   color: white;
   text-align: left;
-  margin-left: 30px;
+  margin-left: 10px;
 }
 
 .inputRegistro{
-  width: 90%;
+  width: 100%;
   padding: 10px;
   margin-bottom: 10px;
   border: 1px #8C52FF;

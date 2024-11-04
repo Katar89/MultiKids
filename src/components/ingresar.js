@@ -11,9 +11,9 @@ function Ingresar() {
   };
 
   return (
-      <div>
-      <img src={logo} alt="Multikids" className='imgIngresar'/> 
       <div className="menu">
+      <img src={logo} alt="Multikids" className='imgIngresar'/> 
+      <div className="menu2">
         <main>
           <button className="boton1" onClick={handleClick}>Ingresar</button>
         </main>

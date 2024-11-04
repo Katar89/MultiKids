@@ -7,10 +7,21 @@ url('https://fonts.googleapis.com/css?family=Cantarell:400,700italic');
   color:transparent
 }
 
+.mainFormulario{
+  display: flex;
+  flex-direction: column;
+  height:850px;
+}
+
+
 .form{
   background-color: #3d3d3d;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   opacity: 80%;
-  width: 50%;
+  width:100%;
+  height: 50%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
@@ -19,8 +30,28 @@ url('https://fonts.googleapis.com/css?family=Cantarell:400,700italic');
   max-width: 400px;
   text-align: center;
   border-radius: 25px;;
+  margin-left: 40vw;
+  margin-right: auto;
+  margin-bottom:0%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
 }
-
+/*display:flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  margin-left: auto;
+  margin-right: auto;
+  margin-top:300px;
+  margin-bottom:0%;
+  padding: 37vw;
+  max-width: 235px;
+  max-height: 25%;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto auto auto;
+*/
 
 .h1Login {
   font-family: 'Cantarell', sans-serif;
@@ -50,10 +81,15 @@ url('https://fonts.googleapis.com/css?family=Cantarell:400,700italic');
 }
 
 
-#imagen{
+#imagenlogin{
+  display: flex;
+  flex-direction: column;
+  padding-left: 30%;
   margin-top: 75px;
   max-width: 100px;
+  margin-right:-200px;
 }
+
 
 #acceder {
   background-color: #8C52FF;

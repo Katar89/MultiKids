@@ -1,0 +1,52 @@
+.tw-Main-Button{
+    display:flex;
+    flex-direction: column;
+    border-radius:20px;
+    align-items:center;
+    justify-content: center;
+    margin:1%;
+    padding:5%;
+    width: 23%;;
+    justify-content: space-between;
+    height: 500px;
+    background-color: var(--button-color);
+}
+.tw-Main-Button:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-color: var(--button-color);
+    background-image: linear-gradient(rgb(0 0 0/50%) 0 0);
+
+    z-index: -0;
+  }
+  .tw-Main-Button:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 100%;
+    background-color: var(--button-color);
+    background-image: linear-gradient(rgb(0 0 0/50%) 0 0);
+
+    transition: all 0.3s;
+    z-index: -1;
+  }
+  .tw-Main-Button:hover {
+    color: #fff;
+  }
+  .tw-Main-Button:hover:before {
+    width: 100%;
+  }
+
+.tw-Main-Button-Text{
+    color: #fff;
+    display: block;
+}
+
+.tw-Main-Button-Image{
+    width: 200px;
+    height: 200px;
+    border-radius: 1000px;
+}
