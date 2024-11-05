@@ -106,7 +106,7 @@ function Estudiantes() {
             </select>
             <input
                 id="Codigo" 
-                type="text" 
+                type="number" 
                 required 
                 className='crearGenero' 
                 placeholder='Codigo'
