@@ -44,7 +44,7 @@ const Inicio = () => {
     navigate('/reportes');
   };
   const handleClick4 = () => {
-    navigate('/ajustes'); 
+    navigate('/acerca'); 
   };
 
   return (
@@ -58,7 +58,7 @@ const Inicio = () => {
         <SidebarMainButton onClick={handleClick} nombreBoton="ESTUDIANTES" imgBoton={logoEstudiante} />
         <SidebarMainButton onClick={handleClick2} nombreBoton="ACTIVIDADES" imgBoton={logoActividades} />
         <SidebarMainButton onClick={handleClick3} nombreBoton="REPORTES" imgBoton={logoAjustes} />
-        <SidebarMainButton onClick={handleClick4} nombreBoton="AJUSTES" imgBoton={logoAyuda} />
+        <SidebarMainButton onClick={handleClick4} nombreBoton="ACERCA DE" imgBoton={logoAyuda} />
       </aside>
     </main>
   );
