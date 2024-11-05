@@ -17,7 +17,6 @@ body{
   background-image: brightness(75%);
   background-size: 1920px 1280px;
   font-family: sans-serif;
-  overflow: hidden;
 }
 
 code {

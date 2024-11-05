@@ -5,7 +5,7 @@ import '../micro-components/SidebarCardContainer.css';
 import '../micro-components/SidebarCard.css';
 import { SidebarMainButton } from '../micro-components/SidebarMainButton.jsx';
 import { SidebarCardContainer } from '../micro-components/SidebarCardContainer.jsx';
-import { SidebarCard } from '../micro-components/SidebarCard';
+import { SidebarCard } from '../micro-components/SidebarCard.jsx';
 import logoEstudiante from '../assets/logoEstudiante.png';
 import logoActividades from '../assets/logoActividades.png';
 import logoAjustes from '../assets/logoAjustes.png';

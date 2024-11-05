@@ -7,7 +7,7 @@ import Estudiantes from './components/estudiantes.js';
 import Actividades from './components/Actividades.js';
 import Registro from './components/registro.js';
 import Reportes from './components/Reportes.js';
-import AcercaDe from './components/acerca.js';
+import Acerca from './components/acerca.js';
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <Route exact path='/estudiantes'  element={<Estudiantes/>}/>
         <Route exact path='/actividades'  element={<Actividades/>}/>
         <Route exact path='/reportes'  element={<Reportes/>}/>
-        <Route exact path='/acerca'  element={<AcercaDe/>}/>
+        <Route exact path='/acerca'  element={<Acerca/>}/>
       </Routes>
     </Router>
   );

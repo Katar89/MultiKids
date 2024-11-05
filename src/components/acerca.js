@@ -14,7 +14,12 @@ import logoAyuda from '../assets/logoAyuda.png';
 import { useNavigate } from 'react-router-dom'; 
 import axios from 'axios';
 function AcercaDe()
-{return (
+{
+  const navigate = useNavigate();
+  const handleBack = () => {
+    navigate(-1);
+  };
+  return (
     <main className="ContenedorAcerca">
       <h1 className="titulo">
         SOBRE NOSOTROS
@@ -22,7 +27,8 @@ function AcercaDe()
       <strong className="parrafo">
       BetPlay es un equipo apasionado por desarrollar soluciones tecnológicas que transformen la educación, haciendo que el aprendizaje sea más accesible, dinámico y adaptado a las necesidades del mundo actual. Creemos en el poder de la tecnología para enriquecer la experiencia educativa, fomentando el crecimiento de estudiantes y docentes por igual. A través de plataformas y aplicaciones innovadoras, trabajamos para que la educación sea más versátil, inclusiva y alineada con los desafíos del siglo XXI.
       </strong>
-      <button className="botonConocer">Conoce Mas</button>
+      <button className="botonConocer" onClick={handleBack}>Regresar</button>
     </main>
-  )}
+  )
+}
   export default AcercaDe;
